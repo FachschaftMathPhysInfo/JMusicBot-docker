@@ -1,19 +1,21 @@
+---
 version: "3.3"
 
-services: 
-  
+services:
+
   musicbot_alpha:
-    build: .
-    volumes: 
+    build: &buildinstructions
+      context: ./src
+      dockerfile: ../Dockerfile
+    volumes:
       - ./config_alpha.txt:/MusicBot/config.txt
-  
+
   musicbot_beta:
-    build: .
-    volumes: 
+    build: *buildinstructions
+    volumes:
       - ./config_beta.txt:/MusicBot/config.txt
-    
+
   musicbot_gamma:
-    build: .
-    volumes: 
+    build: *buildinstructions
+    volumes:
       - ./config_gamma.txt:/MusicBot/config.txt
-      

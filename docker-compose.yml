@@ -1,19 +1,24 @@
+---
 version: "3.3"
 
-services: 
-  
+services:
+
   musicbot_alpha:
-    build: .
-    volumes: 
+    restart: always
+    build: &buildinstructions
+      context: ./MusicBot
+      dockerfile: ../Dockerfile
+    volumes:
       - ./config_alpha.txt:/MusicBot/config.txt
-  
+
   musicbot_beta:
-    build: .
-    volumes: 
+    restart: always
+    build: *buildinstructions
+    volumes:
       - ./config_beta.txt:/MusicBot/config.txt
-    
+
   musicbot_gamma:
-    build: .
-    volumes: 
+    restart: always
+    build: *buildinstructions
+    volumes:
       - ./config_gamma.txt:/MusicBot/config.txt
-      

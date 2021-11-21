@@ -1,0 +1,19 @@
+version: "3.3"
+
+services: 
+  
+  musicbot_alpha:
+    build: .
+    volumes: 
+      - ./config_alpha.txt:/MusicBot/config.txt
+  
+  musicbot_beta:
+    build: .
+    volumes: 
+      - ./config_beta.txt:/MusicBot/config.txt
+    
+  musicbot_gamma:
+    build: .
+    volumes: 
+      - ./config_gamma.txt:/MusicBot/config.txt
+      

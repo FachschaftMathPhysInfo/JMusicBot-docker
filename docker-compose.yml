@@ -5,7 +5,7 @@ services:
 
   musicbot_alpha:
     build: &buildinstructions
-      context: ./src
+      context: ./MusicBot
       dockerfile: ../Dockerfile
     volumes:
       - ./config_alpha.txt:/MusicBot/config.txt

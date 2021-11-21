@@ -1,0 +1,3 @@
+[submodule "MusicBot"]
+	path = MusicBot
+	url = https://github.com/jagrosh/MusicBot.git

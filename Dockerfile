@@ -4,7 +4,10 @@ FROM maven AS build
 
 WORKDIR /MusicBot
 COPY . .
-RUN mvn package
+
+# Insert the current version and build the JAR
+RUN sed "s%<version>Snapshot</version>%<version>0.3.6</version>%g" pom.xml -i && \
+    mvn package
 
 # Run Stage
 
@@ -12,7 +15,7 @@ FROM openjdk AS run
 
 WORKDIR /MusicBot
 
-COPY --from=build /MusicBot/target/JMusicBot-Snapshot-All.jar /MusicBot/JMusicBot.jar
+COPY --from=build /MusicBot/target/JMusicBot-*-All.jar /MusicBot/JMusicBot.jar
 
 RUN groupadd -r musicbot && \
     useradd -g musicbot musicbot && \

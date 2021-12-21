@@ -4,10 +4,12 @@ FROM maven AS build
 
 WORKDIR /MusicBot
 COPY . .
+COPY ./DJCommand.java ./src/main/java/com/jagrosh/jmusicbot/commands/DJCommand.java
 
 # Insert the current version and build the JAR
 RUN sed "s%<version>Snapshot</version>%<version>0.3.6</version>%g" pom.xml -i && \
     mvn package
+
 
 # Run Stage
 

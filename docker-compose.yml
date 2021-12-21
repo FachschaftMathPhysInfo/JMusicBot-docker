@@ -10,7 +10,7 @@ services:
       dockerfile: ../Dockerfile
     volumes:
       - ./config_alpha.txt:/MusicBot/config.txt
-
+  
   musicbot_beta:
     restart: always
     build: *buildinstructions

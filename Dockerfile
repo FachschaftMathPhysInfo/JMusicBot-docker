@@ -6,7 +6,7 @@ WORKDIR /MusicBot
 COPY . .
 
 # Insert the current version and build the JAR
-RUN sed "s%<version>Snapshot</version>%<version>0.3.6</version>%g" pom.xml -i && \
+RUN sed "s%<version>Snapshot</version>%<version>0.3.7</version>%g" pom.xml -i && \
     mvn package
 
 # Run Stage
